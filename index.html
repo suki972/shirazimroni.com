@@ -4,15 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Primary SEO -->
   <title>Shira Kohn Zimroni | Interior Designer in Austin, Texas</title>
-  <meta name="description" content="Shira Kohn Zimroni is an interior designer based in Austin, Texas, creating beautiful, functional spaces tailored to each client's unique lifestyle. Full-home design, renovations, and consultations.">
+  <meta name="description" content="Shira Kohn Zimroni is an interior designer based in Austin, Texas, creating beautiful, functional spaces tailored to each client's unique lifestyle. Full-home renovations, kitchens, bathrooms, furnishing, and concept development.">
   <meta name="keywords" content="interior designer Austin Texas, residential interior design Austin TX, home renovation Austin, interior design services Austin TX, Shira Kohn Zimroni, Austin interior design studio">
   <meta name="author" content="Shira Kohn Zimroni">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://shirazimroni.com">
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://shirazimroni.com">
   <meta property="og:title" content="Shira Kohn Zimroni | Interior Designer Austin, Texas">
@@ -20,13 +18,11 @@
   <meta property="og:image" content="https://shirazimroni.com/images/og-image.jpg">
   <meta property="og:locale" content="en_US">
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Shira Kohn Zimroni | Interior Designer Austin, Texas">
   <meta name="twitter:description" content="Creating beautiful, functional spaces tailored to your vision.">
   <meta name="twitter:image" content="https://shirazimroni.com/images/og-image.jpg">
 
-  <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -63,7 +59,6 @@
   }
   </script>
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -75,102 +70,187 @@
   <!-- ============ NAVIGATION ============ -->
   <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
-      <a href="#home" class="nav__logo" aria-label="Shira Kohn Zimroni Interior Design — home">
+      <a href="#home" class="nav__logo" aria-label="Shira Kohn Zimroni — home">
         <span class="nav__logo-name">Shira Kohn Zimroni</span>
         <span class="nav__logo-sub">Interior Design · Austin, TX</span>
       </a>
-
       <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
-
       <ul class="nav__menu" id="navMenu" role="list">
-        <li><a href="#about" class="nav__link">About</a></li>
-        <li><a href="#services" class="nav__link">Services</a></li>
+        <li><a href="#about"     class="nav__link">About</a></li>
+        <li><a href="#services"  class="nav__link">Services</a></li>
         <li><a href="#portfolio" class="nav__link">Portfolio</a></li>
-        <li><a href="#process" class="nav__link">Process</a></li>
-        <li><a href="#contact" class="nav__link nav__link--cta">Contact</a></li>
+        <li><a href="#process"   class="nav__link">Process</a></li>
+        <li><a href="#contact"   class="nav__link nav__link--cta">Contact</a></li>
       </ul>
     </div>
   </nav>
 
   <main id="home">
 
-    <!-- ============ HERO ============ -->
-    <section class="hero" aria-label="Introduction">
-      <div class="hero__bg-panel" aria-hidden="true"></div>
-      <div class="hero__inner">
-        <div class="hero__text">
-          <p class="eyebrow" data-fade>Austin, Texas</p>
-          <h1 class="hero__headline" data-fade data-delay="1">
-            Design That<br><em>Feels Like Home</em>
-          </h1>
-          <p class="hero__body" data-fade data-delay="2">
-            Thoughtful interiors crafted around your life, your story, and the way you move through your space.
-          </p>
-          <div class="hero__btns" data-fade data-delay="3">
-            <a href="#portfolio" class="btn btn--filled">View My Work</a>
-            <a href="#contact" class="btn btn--ghost">Get in Touch</a>
+    <!-- ============ INTRO ============ -->
+    <section class="intro" aria-label="Introduction">
+      <div class="intro__inner">
+
+        <div class="intro__heading">
+          <p class="intro__eyebrow">Interior Designer · Austin, Texas</p>
+          <h1 class="intro__name">Shira Kohn<br>Zimroni</h1>
+        </div>
+
+        <div class="intro__photo-wrap">
+          <img
+            src="images/shira-portrait.jpg"
+            alt="Shira Kohn Zimroni, interior designer based in Austin, Texas"
+            class="intro__photo"
+            width="520"
+            height="650"
+            loading="eager"
+            onerror="this.style.display='none'; this.parentElement.classList.add('intro__photo-wrap--empty')"
+          >
+        </div>
+
+        <div class="intro__foot">
+          <p class="intro__lead">Thoughtful interiors crafted around your life,<br>your story, and the way you move through your space.</p>
+          <div class="intro__btns">
+            <a href="#portfolio" class="btn btn--filled">View Work</a>
+            <a href="#contact"   class="btn btn--ghost">Get in Touch</a>
           </div>
         </div>
 
-        <div class="hero__photo-wrap" data-fade data-delay="2">
-          <div class="hero__photo-frame">
-            <!--
-              PHOTO SETUP:
-              Save the attached portrait as images/shira-portrait.jpg
-              Recommended: crop to approx 600×750 px, portrait orientation
-            -->
-            <img
-              src="images/shira-portrait.jpg"
-              alt="Shira Kohn Zimroni, interior designer based in Austin, Texas"
-              class="hero__photo"
-              width="600"
-              height="750"
-              loading="eager"
-              onerror="this.style.display='none'; this.parentElement.classList.add('hero__photo-frame--placeholder')"
-            >
-          </div>
-          <div class="hero__badge" aria-hidden="true">
-            <span class="hero__badge-num">50+</span>
-            <span class="hero__badge-label">Projects Completed</span>
-          </div>
+      </div>
+    </section>
+
+    <!-- ============ PORTFOLIO ============ -->
+    <section class="work" id="portfolio" aria-labelledby="work-heading">
+      <div class="work__header">
+        <p class="eyebrow">Selected Work</p>
+        <div class="work__filters" role="tablist" aria-label="Filter by project type">
+          <button class="filter-btn filter-btn--active" data-filter="all"          role="tab" aria-selected="true">All</button>
+          <button class="filter-btn"                    data-filter="residential"  role="tab" aria-selected="false">Residential</button>
+          <button class="filter-btn"                    data-filter="kitchen-bath" role="tab" aria-selected="false">Kitchen &amp; Bath</button>
+          <button class="filter-btn"                    data-filter="renovation"   role="tab" aria-selected="false">Renovation</button>
         </div>
       </div>
 
-      <a href="#about" class="hero__scroll" aria-label="Scroll to about section">
-        <span class="hero__scroll-text">Scroll</span>
-        <span class="hero__scroll-line" aria-hidden="true"></span>
-      </a>
+      <div class="work__grid" id="portfolioGrid">
+
+        <article class="p-item" data-category="residential">
+          <a href="#portfolio" class="p-item__link" aria-label="Westlake Hills Residence">
+            <img src="https://picsum.photos/seed/shira-p1/800/800" alt="Modern living room — Westlake Hills Residence, Austin TX" class="p-item__img" width="800" height="800" loading="lazy">
+            <div class="p-item__overlay">
+              <p class="p-item__title">Westlake Hills Residence</p>
+              <p class="p-item__meta">Residential · Full-Home Design</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="p-item" data-category="kitchen-bath">
+          <a href="#portfolio" class="p-item__link" aria-label="South Congress Kitchen">
+            <img src="https://picsum.photos/seed/shira-p2/800/800" alt="Kitchen renovation — South Congress, Austin TX" class="p-item__img" width="800" height="800" loading="lazy">
+            <div class="p-item__overlay">
+              <p class="p-item__title">South Congress Kitchen</p>
+              <p class="p-item__meta">Kitchen &amp; Bath · Renovation</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="p-item" data-category="renovation">
+          <a href="#portfolio" class="p-item__link" aria-label="Mueller District Condo">
+            <img src="https://picsum.photos/seed/shira-p3/800/800" alt="Open-concept condo — Mueller District, Austin TX" class="p-item__img" width="800" height="800" loading="lazy">
+            <div class="p-item__overlay">
+              <p class="p-item__title">Mueller District Condo</p>
+              <p class="p-item__meta">Residential · Renovation</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="p-item" data-category="residential">
+          <a href="#portfolio" class="p-item__link" aria-label="Barton Hills Open Plan">
+            <img src="https://picsum.photos/seed/shira-p4/800/800" alt="Open-plan living — Barton Hills, Austin TX" class="p-item__img" width="800" height="800" loading="lazy">
+            <div class="p-item__overlay">
+              <p class="p-item__title">Barton Hills Open Plan</p>
+              <p class="p-item__meta">Residential · Full-Home Design</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="p-item" data-category="renovation">
+          <a href="#portfolio" class="p-item__link" aria-label="Tarrytown Master Suite">
+            <img src="https://picsum.photos/seed/shira-p5/800/800" alt="Master bedroom — Tarrytown, Austin TX" class="p-item__img" width="800" height="800" loading="lazy">
+            <div class="p-item__overlay">
+              <p class="p-item__title">Tarrytown Master Suite</p>
+              <p class="p-item__meta">Residential · Room Redesign</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="p-item" data-category="kitchen-bath">
+          <a href="#portfolio" class="p-item__link" aria-label="Pemberton Heights Bath">
+            <img src="https://picsum.photos/seed/shira-p6/800/800" alt="Spa bathroom — Pemberton Heights, Austin TX" class="p-item__img" width="800" height="800" loading="lazy">
+            <div class="p-item__overlay">
+              <p class="p-item__title">Pemberton Heights Bath</p>
+              <p class="p-item__meta">Kitchen &amp; Bath · Renovation</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="p-item" data-category="residential">
+          <a href="#portfolio" class="p-item__link" aria-label="Hyde Park Family Home">
+            <img src="https://picsum.photos/seed/shira-p7/800/800" alt="Family living room — Hyde Park, Austin TX" class="p-item__img" width="800" height="800" loading="lazy">
+            <div class="p-item__overlay">
+              <p class="p-item__title">Hyde Park Family Home</p>
+              <p class="p-item__meta">Residential · Full-Home Design</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="p-item" data-category="kitchen-bath">
+          <a href="#portfolio" class="p-item__link" aria-label="Clarksville Kitchen">
+            <img src="https://picsum.photos/seed/shira-p8/800/800" alt="Custom kitchen cabinetry — Clarksville, Austin TX" class="p-item__img" width="800" height="800" loading="lazy">
+            <div class="p-item__overlay">
+              <p class="p-item__title">Clarksville Kitchen</p>
+              <p class="p-item__meta">Kitchen &amp; Bath · Custom Built-Ins</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="p-item" data-category="renovation">
+          <a href="#portfolio" class="p-item__link" aria-label="Bouldin Creek Renovation">
+            <img src="https://picsum.photos/seed/shira-p9/800/800" alt="Full renovation — Bouldin Creek, Austin TX" class="p-item__img" width="800" height="800" loading="lazy">
+            <div class="p-item__overlay">
+              <p class="p-item__title">Bouldin Creek Renovation</p>
+              <p class="p-item__meta">Residential · Full Renovation</p>
+            </div>
+          </a>
+        </article>
+
+      </div>
     </section>
 
     <!-- ============ ABOUT ============ -->
     <section class="about section" id="about" aria-labelledby="about-heading">
       <div class="container">
         <div class="about__grid">
+
           <div class="about__photo-col" data-fade>
             <div class="about__photo-wrap">
               <img
                 src="images/shira-portrait.jpg"
                 alt="Shira Kohn Zimroni in her element — an Austin home she designed"
                 class="about__photo"
-                width="560"
-                height="680"
+                width="520"
+                height="640"
                 loading="lazy"
-                onerror="this.closest('.about__photo-wrap').classList.add('about__photo-wrap--placeholder')"
+                onerror="this.closest('.about__photo-wrap').classList.add('about__photo-wrap--empty')"
               >
-              <div class="about__quote-card" aria-hidden="true">
-                <p class="about__quote">&ldquo;Every space has a story waiting to be told.&rdquo;</p>
-              </div>
             </div>
           </div>
 
           <div class="about__text-col">
-            <p class="eyebrow" data-fade>About Shira</p>
+            <p class="eyebrow" data-fade>About</p>
             <h2 class="section-title" id="about-heading" data-fade data-delay="1">
-              A Passion for Beautiful, Livable Spaces
+              A Passion for Beautiful,<br>Livable Spaces
             </h2>
             <p class="about__para" data-fade data-delay="2">
               I'm Shira Kohn Zimroni, an interior designer based in Austin, Texas, with a deep belief that great design should make your life better — not just look better.
@@ -192,216 +272,95 @@
                 <span class="about__stat-label">Client Satisfaction</span>
               </div>
               <div class="about__stat">
-                <span class="about__stat-num">Austin</span>
+                <span class="about__stat-num">ATX</span>
                 <span class="about__stat-label">Based &amp; Proud</span>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
 
     <!-- ============ SERVICES ============ -->
-    <section class="services section section--alt" id="services" aria-labelledby="services-heading">
+    <section class="services section" id="services" aria-labelledby="services-heading">
       <div class="container">
-        <div class="section-header" data-fade>
-          <p class="eyebrow">What I Offer</p>
-          <h2 class="section-title" id="services-heading">Design Services</h2>
-          <p class="section-body">From a single room refresh to a full home transformation, every service is tailored to your vision and the way you live.</p>
+
+        <div class="services__header" data-fade>
+          <p class="eyebrow">Services</p>
+          <h2 class="section-title" id="services-heading">What I Offer</h2>
         </div>
 
-        <div class="services__grid">
+        <ol class="services__list" role="list">
 
-          <article class="service-card" data-fade data-delay="1">
-            <div class="service-card__icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 12.5L14 4L25 12.5V24H18V17H10V24H3V12.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
-              </svg>
+          <li class="svc" data-fade data-delay="1">
+            <span class="svc__num" aria-hidden="true">01</span>
+            <div class="svc__body">
+              <h3 class="svc__title">Full Home Renovations</h3>
+              <p class="svc__text">Comprehensive interior renovation services for clients looking to transform their homes from the ground up. Services include space planning, kitchens, bathrooms, custom architectural details, finish selections, and collaboration with contractors and trades to create cohesive, functional, and elevated living spaces.</p>
             </div>
-            <h3 class="service-card__title">Full Home Renovations</h3>
-            <p class="service-card__body">Comprehensive interior renovation services for clients looking to transform their homes from the ground up. Includes space planning, kitchens, bathrooms, custom architectural details, finish selections, and collaboration with contractors and trades to create cohesive, functional, and elevated living spaces.</p>
-          </article>
+          </li>
 
-          <article class="service-card" data-fade data-delay="2">
-            <div class="service-card__icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7 21L21 7M16 5L23 12L20 15L13 8L16 5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M5 23L9 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
+          <li class="svc" data-fade data-delay="2">
+            <span class="svc__num" aria-hidden="true">02</span>
+            <div class="svc__body">
+              <h3 class="svc__title">Kitchens, Bathrooms &amp; Custom Built-Ins</h3>
+              <p class="svc__text">Focused renovation and design services for individual spaces and custom features throughout the home. This includes kitchens, bathrooms, staircases, fireplaces, cabinetry, closets, offices, media walls, and outdoor kitchens, with an emphasis on thoughtful design and tailored functionality.</p>
             </div>
-            <h3 class="service-card__title">Kitchens, Bathrooms &amp; Custom Built-Ins</h3>
-            <p class="service-card__body">Focused renovation and design services for individual spaces and custom features — kitchens, bathrooms, staircases, fireplaces, cabinetry, closets, offices, media walls, and outdoor kitchens — with an emphasis on thoughtful design and tailored functionality.</p>
-          </article>
+          </li>
 
-          <article class="service-card" data-fade data-delay="3">
-            <div class="service-card__icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="2" y="14" width="24" height="9" rx="2" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M6 14V11C6 9.9 6.9 9 8 9H20C21.1 9 22 9.9 22 11V14" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M6 23V25M22 23V25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
+          <li class="svc" data-fade data-delay="3">
+            <span class="svc__num" aria-hidden="true">03</span>
+            <div class="svc__body">
+              <h3 class="svc__title">Furnishing, Styling &amp; Move-In Services</h3>
+              <p class="svc__text">Design support for furnishing and styling homes, whether for a single room or an entire home. Ideal for clients relocating from another city or country, this service includes furniture sourcing, layout planning, lighting, rugs, artwork, accessories, and creating a polished, move-in-ready home.</p>
             </div>
-            <h3 class="service-card__title">Furnishing, Styling &amp; Move-In Services</h3>
-            <p class="service-card__body">Design support for furnishing and styling homes — from a single room to an entire home. Ideal for clients relocating from another city or country. Includes furniture sourcing, layout planning, lighting, rugs, artwork, accessories, and a polished, move-in-ready result.</p>
-          </article>
+          </li>
 
-          <article class="service-card" data-fade data-delay="4">
-            <div class="service-card__icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 5H23C24.1 5 25 5.9 25 7V17C25 18.1 24.1 19 23 19H16L10 25V19H5C3.9 19 3 18.1 3 17V7C3 5.9 3.9 5 5 5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-              </svg>
+          <li class="svc" data-fade data-delay="4">
+            <span class="svc__num" aria-hidden="true">04</span>
+            <div class="svc__body">
+              <h3 class="svc__title">Interior Design &amp; Concept Development</h3>
+              <p class="svc__text">Design services focused on creating a clear vision and direction for a space. Includes room design, concept creation, material and finish selections, color palettes, furniture planning, and overall aesthetic development to ensure a cohesive and personalized result.</p>
             </div>
-            <h3 class="service-card__title">Interior Design &amp; Concept Development</h3>
-            <p class="service-card__body">Design services focused on creating a clear vision and direction for a space. Includes room design, concept creation, material and finish selections, color palettes, furniture planning, and overall aesthetic development to ensure a cohesive and personalized result.</p>
-          </article>
+          </li>
 
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ PORTFOLIO ============ -->
-    <section class="portfolio section" id="portfolio" aria-labelledby="portfolio-heading">
-      <div class="container">
-        <div class="portfolio__header">
-          <div data-fade>
-            <p class="eyebrow">My Work</p>
-            <h2 class="section-title" id="portfolio-heading">Selected Projects</h2>
-          </div>
-          <div class="portfolio__filters" role="tablist" aria-label="Filter projects by type" data-fade data-delay="1">
-            <button class="filter-btn filter-btn--active" data-filter="all" role="tab" aria-selected="true">All</button>
-            <button class="filter-btn" data-filter="residential" role="tab" aria-selected="false">Residential</button>
-            <button class="filter-btn" data-filter="kitchen-bath" role="tab" aria-selected="false">Kitchen &amp; Bath</button>
-            <button class="filter-btn" data-filter="renovation" role="tab" aria-selected="false">Renovation</button>
-          </div>
-        </div>
-
-        <div class="portfolio__grid" id="portfolioGrid">
-
-          <!-- Project 1 -->
-          <article class="p-item" data-category="residential" data-fade>
-            <a href="#portfolio" class="p-item__link" aria-label="View Westlake Hills Residence project">
-              <div class="p-item__img-wrap">
-                <img src="https://picsum.photos/seed/shira-p1/800/600" alt="Modern living room design — Westlake Hills Residence, Austin TX" class="p-item__img" width="800" height="600" loading="lazy">
-              </div>
-              <div class="p-item__info">
-                <h3 class="p-item__title">Westlake Hills Residence</h3>
-                <p class="p-item__meta">Residential · Full-Home Design</p>
-              </div>
-            </a>
-          </article>
-
-          <!-- Project 2 — tall -->
-          <article class="p-item p-item--tall" data-category="kitchen-bath" data-fade data-delay="1">
-            <a href="#portfolio" class="p-item__link" aria-label="View South Congress Kitchen project">
-              <div class="p-item__img-wrap">
-                <img src="https://picsum.photos/seed/shira-p2/600/900" alt="Kitchen renovation with custom cabinetry — South Congress, Austin TX" class="p-item__img" width="600" height="900" loading="lazy">
-              </div>
-              <div class="p-item__info">
-                <h3 class="p-item__title">South Congress Kitchen</h3>
-                <p class="p-item__meta">Kitchen &amp; Bath · Renovation</p>
-              </div>
-            </a>
-          </article>
-
-          <!-- Project 3 -->
-          <article class="p-item" data-category="renovation" data-fade data-delay="2">
-            <a href="#portfolio" class="p-item__link" aria-label="View Mueller District Condo project">
-              <div class="p-item__img-wrap">
-                <img src="https://picsum.photos/seed/shira-p3/800/600" alt="Open-concept condo renovation — Mueller District, Austin TX" class="p-item__img" width="800" height="600" loading="lazy">
-              </div>
-              <div class="p-item__info">
-                <h3 class="p-item__title">Mueller District Condo</h3>
-                <p class="p-item__meta">Residential · Renovation</p>
-              </div>
-            </a>
-          </article>
-
-          <!-- Project 4 — wide -->
-          <article class="p-item p-item--wide" data-category="residential" data-fade data-delay="1">
-            <a href="#portfolio" class="p-item__link" aria-label="View Barton Hills Open Plan project">
-              <div class="p-item__img-wrap">
-                <img src="https://picsum.photos/seed/shira-p4/1200/700" alt="Open-plan living and dining design — Barton Hills, Austin TX" class="p-item__img" width="1200" height="700" loading="lazy">
-              </div>
-              <div class="p-item__info">
-                <h3 class="p-item__title">Barton Hills Open Plan</h3>
-                <p class="p-item__meta">Residential · Full-Home Design</p>
-              </div>
-            </a>
-          </article>
-
-          <!-- Project 5 -->
-          <article class="p-item" data-category="renovation" data-fade data-delay="2">
-            <a href="#portfolio" class="p-item__link" aria-label="View Tarrytown Master Suite project">
-              <div class="p-item__img-wrap">
-                <img src="https://picsum.photos/seed/shira-p5/800/600" alt="Luxury master bedroom redesign — Tarrytown, Austin TX" class="p-item__img" width="800" height="600" loading="lazy">
-              </div>
-              <div class="p-item__info">
-                <h3 class="p-item__title">Tarrytown Master Suite</h3>
-                <p class="p-item__meta">Residential · Room Redesign</p>
-              </div>
-            </a>
-          </article>
-
-          <!-- Project 6 -->
-          <article class="p-item" data-category="kitchen-bath" data-fade data-delay="3">
-            <a href="#portfolio" class="p-item__link" aria-label="View Pemberton Heights Bath project">
-              <div class="p-item__img-wrap">
-                <img src="https://picsum.photos/seed/shira-p6/800/600" alt="Spa-inspired bathroom renovation — Pemberton Heights, Austin TX" class="p-item__img" width="800" height="600" loading="lazy">
-              </div>
-              <div class="p-item__info">
-                <h3 class="p-item__title">Pemberton Heights Bath</h3>
-                <p class="p-item__meta">Kitchen &amp; Bath · Renovation</p>
-              </div>
-            </a>
-          </article>
-
-        </div>
-
-        <div class="portfolio__cta" data-fade>
-          <a href="#contact" class="btn btn--filled">Start Your Project</a>
-        </div>
+        </ol>
       </div>
     </section>
 
     <!-- ============ PROCESS ============ -->
-    <section class="process section section--alt" id="process" aria-labelledby="process-heading">
+    <section class="process section" id="process" aria-labelledby="process-heading">
       <div class="container">
-        <div class="section-header" data-fade>
+
+        <div class="process__header" data-fade>
           <p class="eyebrow">How We Work Together</p>
           <h2 class="section-title" id="process-heading">The Design Process</h2>
-          <p class="section-body">A clear, collaborative journey from first conversation to final reveal.</p>
         </div>
 
         <ol class="process__steps" role="list">
-          <li class="process-step" data-fade data-delay="1">
-            <div class="process-step__num" aria-hidden="true">01</div>
-            <div class="process-step__content">
-              <h3 class="process-step__title">Discovery</h3>
-              <p class="process-step__body">We begin with a conversation — about your life, your style, your must-haves and your dreams. I listen before I design anything.</p>
-            </div>
+          <li class="p-step" data-fade data-delay="1">
+            <span class="p-step__num">01</span>
+            <h3 class="p-step__title">Discovery</h3>
+            <p class="p-step__text">We begin with a conversation — about your life, your style, your must-haves and your dreams. I listen before I design anything.</p>
           </li>
-          <li class="process-step" data-fade data-delay="2">
-            <div class="process-step__num" aria-hidden="true">02</div>
-            <div class="process-step__content">
-              <h3 class="process-step__title">Concept Design</h3>
-              <p class="process-step__body">Floor plans, mood boards, material palettes, and furniture selections — a complete design vision tailored to you.</p>
-            </div>
+          <li class="p-step" data-fade data-delay="2">
+            <span class="p-step__num">02</span>
+            <h3 class="p-step__title">Concept Design</h3>
+            <p class="p-step__text">Floor plans, mood boards, material palettes, and furniture selections — a complete design vision tailored to you.</p>
           </li>
-          <li class="process-step" data-fade data-delay="3">
-            <div class="process-step__num" aria-hidden="true">03</div>
-            <div class="process-step__content">
-              <h3 class="process-step__title">Execution</h3>
-              <p class="process-step__body">I coordinate vendors, contractors, and deliveries — managing every detail so the process is smooth and stress-free for you.</p>
-            </div>
+          <li class="p-step" data-fade data-delay="3">
+            <span class="p-step__num">03</span>
+            <h3 class="p-step__title">Execution</h3>
+            <p class="p-step__text">I coordinate vendors, contractors, and deliveries — managing every detail so the process is smooth and stress-free for you.</p>
           </li>
-          <li class="process-step" data-fade data-delay="4">
-            <div class="process-step__num" aria-hidden="true">04</div>
-            <div class="process-step__content">
-              <h3 class="process-step__title">Final Reveal</h3>
-              <p class="process-step__body">The moment of transformation — your space, fully realized. Every piece in place, every detail considered, exactly as imagined.</p>
-            </div>
+          <li class="p-step" data-fade data-delay="4">
+            <span class="p-step__num">04</span>
+            <h3 class="p-step__title">Final Reveal</h3>
+            <p class="p-step__text">The moment of transformation — your space, fully realized. Every piece in place, every detail considered.</p>
           </li>
         </ol>
+
       </div>
     </section>
 
@@ -412,79 +371,62 @@
 
           <div class="contact__info">
             <p class="eyebrow" data-fade>Let's Connect</p>
-            <h2 class="section-title" id="contact-heading" data-fade data-delay="1">Start Your Design Journey</h2>
-            <p class="contact__body" data-fade data-delay="2">Ready to transform your space? I'd love to hear about your project. Reach out and let's explore what's possible together.</p>
+            <h2 class="section-title" id="contact-heading" data-fade data-delay="1">Start Your<br>Design Journey</h2>
+            <p class="contact__body" data-fade data-delay="2">Ready to transform your space? I'd love to hear about your project.</p>
 
             <ul class="contact__details" data-fade data-delay="3" role="list">
               <li>
                 <a href="tel:+14084550108" class="contact__detail">
-                  <svg class="contact__detail-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                  <svg class="contact__icon" width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true">
                     <path d="M2 2.5C2 2 2.4 1.5 3 1.5H5.9C6.3 1.5 6.65 1.8 6.7 2.2L7.6 6.2C7.65 6.55 7.5 6.9 7.2 7.1L5.8 8C6.65 9.7 8 11.1 9.7 11.9L10.6 10.5C10.8 10.2 11.15 10.05 11.5 10.1L15.5 11C15.9 11.1 16.2 11.45 16.2 11.85V14.75C16.2 15.3 15.75 15.75 15.2 15.75C8.5 15.75 2 9.25 2 2.5Z" stroke="currentColor" stroke-width="1.4"/>
                   </svg>
-                  <span>(408) 455-0108</span>
+                  (408) 455-0108
                 </a>
               </li>
               <li>
                 <a href="mailto:skohn109@gmail.com" class="contact__detail">
-                  <svg class="contact__detail-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                  <svg class="contact__icon" width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true">
                     <rect x="2" y="4" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.4"/>
                     <path d="M2 6.5L9 11L16 6.5" stroke="currentColor" stroke-width="1.4"/>
                   </svg>
-                  <span>skohn109@gmail.com</span>
+                  skohn109@gmail.com
                 </a>
               </li>
               <li>
-                <div class="contact__detail">
-                  <svg class="contact__detail-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                <span class="contact__detail">
+                  <svg class="contact__icon" width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true">
                     <path d="M9 2C6.8 2 5 3.8 5 6C5 9.3 9 16 9 16C9 16 13 9.3 13 6C13 3.8 11.2 2 9 2ZM9 7.5C8.2 7.5 7.5 6.8 7.5 6C7.5 5.2 8.2 4.5 9 4.5C9.8 4.5 10.5 5.2 10.5 6C10.5 6.8 9.8 7.5 9 7.5Z" stroke="currentColor" stroke-width="1.4"/>
                   </svg>
-                  <span>Austin, Texas</span>
-                </div>
+                  Austin, Texas
+                </span>
               </li>
             </ul>
 
-            <div class="contact__socials" data-fade data-delay="4" aria-label="Social media links">
+            <div class="contact__socials" data-fade data-delay="4">
               <a href="#" class="social-btn" aria-label="Instagram">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-                  <rect x="2" y="2" width="14" height="14" rx="4" stroke="currentColor" stroke-width="1.4"/>
-                  <circle cx="9" cy="9" r="3" stroke="currentColor" stroke-width="1.4"/>
-                  <circle cx="13" cy="5" r="0.8" fill="currentColor"/>
-                </svg>
+                <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2" y="2" width="14" height="14" rx="4" stroke="currentColor" stroke-width="1.4"/><circle cx="9" cy="9" r="3" stroke="currentColor" stroke-width="1.4"/><circle cx="13" cy="5" r="0.8" fill="currentColor"/></svg>
               </a>
               <a href="#" class="social-btn" aria-label="Pinterest">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-                  <path d="M9 2C5.1 2 2 5.1 2 9C2 12.3 4.1 15.1 7 16.2C7 15.6 7 14.9 7.1 14.4L8.2 10.1C8.2 10.1 7.9 9.5 7.9 8.6C7.9 7.3 8.7 6.3 9.6 6.3C10.4 6.3 10.8 6.9 10.8 7.6C10.8 8.4 10.3 9.6 10 10.7C9.8 11.6 10.5 12.4 11.4 12.4C13.1 12.4 14.3 10.3 14.3 7.8C14.3 5.7 12.8 4.2 10.6 4.2C8.1 4.2 6.6 6.1 6.6 8C6.6 8.8 6.9 9.6 7.3 10C7.35 10.06 7.36 10.1 7.34 10.16L7.04 11.3C7 11.46 6.9 11.5 6.74 11.43C5.5 10.85 4.7 8.8 4.7 8C4.7 5 6.9 2.3 11 2.3C14.3 2.3 16.8 4.7 16.8 7.9C16.8 11.3 14.7 14 11.7 14C10.7 14 9.7 13.5 9.4 12.9L8.8 15.1C8.5 16 7.9 17.1 7.5 17.7C8.1 17.9 8.5 18 9 18C12.9 18 16 14.9 16 11C16 7.1 12.9 4 9 4V2Z" stroke="currentColor" stroke-width="1.4"/>
-                </svg>
+                <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 2C5.1 2 2 5.1 2 9C2 12.3 4.1 15.1 7 16.2C7 15.6 7 14.9 7.1 14.4L8.2 10.1C8.2 10.1 7.9 9.5 7.9 8.6C7.9 7.3 8.7 6.3 9.6 6.3C10.4 6.3 10.8 6.9 10.8 7.6C10.8 8.4 10.3 9.6 10 10.7C9.8 11.6 10.5 12.4 11.4 12.4C13.1 12.4 14.3 10.3 14.3 7.8C14.3 5.7 12.8 4.2 10.6 4.2C8.1 4.2 6.6 6.1 6.6 8C6.6 8.8 6.9 9.6 7.3 10L7.04 11.3C7 11.46 6.9 11.5 6.74 11.43C5.5 10.85 4.7 8.8 4.7 8C4.7 5 6.9 2.3 11 2.3C14.3 2.3 16.8 4.7 16.8 7.9C16.8 11.3 15.33 14 12.23 14C11.16 14 10.15 13.5 9.82 12.9L9.19 15.1C8.94 16 8.3 17.1 7.88 17.7C8.57 17.9 9 18 9 18C12.9 18 16 14.9 16 11V9C16 5.1 12.9 2 9 2Z" stroke="currentColor" stroke-width="1.4"/></svg>
               </a>
               <a href="#" class="social-btn" aria-label="Houzz">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-                  <path d="M3 16V7.5L9 3L15 7.5V16H11V11H7V16H3Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
-                </svg>
+                <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 16V7.5L9 3L15 7.5V16H11V11H7V16H3Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
               </a>
             </div>
           </div>
 
-          <!-- Contact Form
-               SETUP: Sign up at https://formspree.io → create a form for skohn109@gmail.com
-               → replace YOUR_FORM_ID below with your form's endpoint ID. -->
+          <!-- FORM: replace YOUR_FORM_ID at formspree.io -->
           <div class="contact__form-wrap" data-fade data-delay="2">
-            <form
-              class="contact-form"
-              id="contactForm"
+            <form class="contact-form" id="contactForm"
               action="https://formspree.io/f/YOUR_FORM_ID"
-              method="POST"
-              novalidate
-              aria-label="Contact form"
-            >
+              method="POST" novalidate aria-label="Contact form">
               <input type="hidden" name="_subject" value="New inquiry from shirazimroni.com">
-              <!-- Honeypot spam filter -->
               <input type="text" name="_gotcha" style="display:none" tabindex="-1" aria-hidden="true">
 
               <div class="form-field">
-                <label for="f-name" class="form-label">Your Name <span aria-hidden="true">*</span></label>
+                <label for="f-name" class="form-label">Name <span aria-hidden="true">*</span></label>
                 <input type="text" id="f-name" name="name" class="form-input" placeholder="Jane Smith" required autocomplete="name">
               </div>
-
               <div class="form-row">
                 <div class="form-field">
                   <label for="f-email" class="form-label">Email <span aria-hidden="true">*</span></label>
@@ -495,34 +437,23 @@
                   <input type="tel" id="f-phone" name="phone" class="form-input" placeholder="(512) 000-0000" autocomplete="tel">
                 </div>
               </div>
-
               <div class="form-field">
                 <label for="f-service" class="form-label">Service</label>
                 <select id="f-service" name="service" class="form-input form-select">
                   <option value="">Select a service…</option>
-                  <option value="Full-Home Design">Full-Home Design</option>
-                  <option value="Room Redesign">Room Redesign</option>
-                  <option value="Renovation Design">Renovation Design</option>
-                  <option value="Design Consultation">Design Consultation</option>
-                  <option value="Other">Other</option>
+                  <option value="Full Home Renovations">Full Home Renovations</option>
+                  <option value="Kitchens, Bathrooms & Custom Built-Ins">Kitchens, Bathrooms &amp; Custom Built-Ins</option>
+                  <option value="Furnishing, Styling & Move-In">Furnishing, Styling &amp; Move-In</option>
+                  <option value="Interior Design & Concept Development">Interior Design &amp; Concept Development</option>
                 </select>
               </div>
-
               <div class="form-field">
-                <label for="f-message" class="form-label">Tell Me About Your Project <span aria-hidden="true">*</span></label>
-                <textarea id="f-message" name="message" class="form-input form-textarea" placeholder="Describe your space, your vision, and what you're hoping to achieve…" rows="5" required></textarea>
+                <label for="f-message" class="form-label">Message <span aria-hidden="true">*</span></label>
+                <textarea id="f-message" name="message" class="form-input form-textarea" placeholder="Tell me about your space and vision…" rows="5" required></textarea>
               </div>
-
-              <button type="submit" class="btn btn--filled btn--block" id="submitBtn">
-                Send Message
-              </button>
-
-              <p class="form-msg form-msg--success" id="formSuccess" hidden role="status">
-                Thank you! I'll be in touch very soon.
-              </p>
-              <p class="form-msg form-msg--error" id="formError" hidden role="alert">
-                Something went wrong. Please email me at <a href="mailto:skohn109@gmail.com">skohn109@gmail.com</a>.
-              </p>
+              <button type="submit" class="btn btn--filled btn--block" id="submitBtn">Send Message</button>
+              <p class="form-msg form-msg--success" id="formSuccess" hidden role="status">Thank you! I'll be in touch very soon.</p>
+              <p class="form-msg form-msg--error"   id="formError"   hidden role="alert">Something went wrong. Please email <a href="mailto:skohn109@gmail.com">skohn109@gmail.com</a>.</p>
             </form>
           </div>
 
@@ -539,7 +470,6 @@
         <p class="footer__name">Shira Kohn Zimroni</p>
         <p class="footer__sub">Interior Design · Austin, Texas</p>
       </div>
-
       <nav class="footer__nav" aria-label="Footer navigation">
         <a href="#about">About</a>
         <a href="#services">Services</a>
@@ -547,13 +477,11 @@
         <a href="#process">Process</a>
         <a href="#contact">Contact</a>
       </nav>
-
       <div class="footer__contact">
         <a href="tel:+14084550108">(408) 455-0108</a>
         <a href="mailto:skohn109@gmail.com">skohn109@gmail.com</a>
       </div>
     </div>
-
     <div class="footer__bottom">
       <p>&copy; <span id="footerYear"></span> Shira Kohn Zimroni Interior Design. All rights reserved.</p>
     </div>
