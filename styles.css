@@ -473,7 +473,8 @@ dl, dd { padding: 0; }
 .service__body {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: clamp(20px, 5vw, 80px);
+  column-gap: clamp(20px, 5vw, 80px);
+  row-gap: clamp(16px, 2vw, 28px);
   align-items: start;
 }
 .service__name {
@@ -493,7 +494,6 @@ dl, dd { padding: 0; }
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 20px;
 }
 .service__tags li {
   font-size: 12px;
