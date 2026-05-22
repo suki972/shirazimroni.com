@@ -472,7 +472,7 @@ dl, dd { padding: 0; }
 }
 .service__body {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
   column-gap: clamp(20px, 5vw, 80px);
   row-gap: clamp(16px, 2vw, 28px);
   align-items: start;
