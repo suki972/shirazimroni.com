@@ -627,14 +627,13 @@ dl, dd { padding: 0; }
   gap: clamp(24px, 4vw, 48px);
   align-items: start;
 }
-.process-hero__left { display: grid; gap: 24px; max-width: 900px; }
+.process-hero__left { display: grid; gap: 24px; }
 .process-hero__title {
   font-weight: 300;
   font-size: clamp(40px, 6vw, 88px);
   line-height: 1.02;
   letter-spacing: -0.02em;
   text-wrap: pretty;
-  max-width: 16ch;
 }
 .process-hero__title-em {
   font-family: inherit;
