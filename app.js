@@ -85,4 +85,65 @@
       });
     });
   }
+
+  // Lightbox
+  const lb = $('#lightbox');
+  const lbImg = $('#lbImg');
+  const lbCaption = $('#lbCaption');
+  const lbCount = $('#lbCount');
+  if (lb && galleryItems.length) {
+    let idx = 0;
+    const visible = () => galleryItems.filter(it => !it.hidden);
+    const show = (list, i) => {
+      idx = (i + list.length) % list.length;
+      const item = list[idx];
+      const img = item.querySelector('.gal__img');
+      lbImg.src = img.src;
+      lbImg.alt = img.alt || '';
+      const capEl = item.querySelector('.gal__caption');
+      lbCaption.textContent = capEl ? capEl.textContent : '';
+      lbCount.textContent = `${idx + 1} / ${list.length}`;
+    };
+    const open = (i) => {
+      const list = visible();
+      if (!list.length) return;
+      show(list, list.indexOf(galleryItems[i]) >= 0 ? list.indexOf(galleryItems[i]) : 0);
+      lb.classList.add('is-open');
+      lb.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
+    const close = () => {
+      lb.classList.remove('is-open');
+      lb.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+    const step = (n) => {
+      const list = visible();
+      if (!list.length) return;
+      show(list, idx + n);
+    };
+    galleryItems.forEach((item, i) => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        open(i);
+      });
+    });
+    $('#lbClose').addEventListener('click', close);
+    $('#lbPrev').addEventListener('click', () => step(-1));
+    $('#lbNext').addEventListener('click', () => step(1));
+    lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+    document.addEventListener('keydown', (e) => {
+      if (!lb.classList.contains('is-open')) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowLeft') step(-1);
+      else if (e.key === 'ArrowRight') step(1);
+    });
+    // Touch swipe
+    let touchStartX = 0;
+    lb.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 50) step(dx < 0 ? 1 : -1);
+    });
+  }
 })();

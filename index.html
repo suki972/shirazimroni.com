@@ -4,17 +4,16 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Shira Zimroni Design — Interior Design</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
-<!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
 <link rel="shortcut icon" href="favicon.ico" />
 <meta name="theme-color" content="#2b2a25" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
@@ -141,104 +140,39 @@
         <span class="dash"></span><span>Services</span>
       </div>
       <h2 class="services__title" data-reveal>
-        Four ways I work with clients.
+        Three ways I work with clients.
       </h2>
-      <p class="services__lede" data-reveal>
-        Whether you're renovating a whole home or styling a single room,
-        every engagement is tailored to your scope, timeline, and
-        lifestyle.
-      </p>
     </header>
 
-    <ol class="service-list">
-
+    <ul class="service-list">
       <li class="service" data-reveal>
-        <div class="service__num">01</div>
-        <div class="service__body">
-          <h3 class="service__name">Full Home Renovations</h3>
-          <p class="service__desc">
-            Comprehensive interior renovation services for clients looking
-            to transform their homes from the ground up. Services include
-            space planning, kitchens, bathrooms, custom architectural
-            details, finish selections, and collaboration with contractors
-            and trades to create cohesive, functional, and elevated living
-            spaces.
-          </p>
-          <ul class="service__tags">
-            <li>Space planning</li>
-            <li>Kitchens &amp; baths</li>
-            <li>Architectural detail</li>
-            <li>Finishes</li>
-            <li>Trade coordination</li>
-          </ul>
-        </div>
+        <span class="service__num">01</span>
+        <h3 class="service__name">Full Home Renovations</h3>
+        <p class="service__desc">
+          Comprehensive design services for clients looking to renovate
+          and transform their entire home with a cohesive vision,
+          thoughtful planning, and tailored design direction.
+        </p>
       </li>
-
       <li class="service" data-reveal>
-        <div class="service__num">02</div>
-        <div class="service__body">
-          <h3 class="service__name">Kitchens, Bathrooms &amp; Custom Built-Ins</h3>
-          <p class="service__desc">
-            Focused renovation and design services for individual spaces
-            and custom features throughout the home. This includes
-            kitchens, bathrooms, staircases, fireplaces, cabinetry,
-            closets, offices, media walls, and outdoor kitchens, with an
-            emphasis on thoughtful design and tailored functionality.
-          </p>
-          <ul class="service__tags">
-            <li>Kitchens</li>
-            <li>Bathrooms</li>
-            <li>Cabinetry</li>
-            <li>Closets &amp; offices</li>
-            <li>Media walls</li>
-            <li>Outdoor kitchens</li>
-          </ul>
-        </div>
+        <span class="service__num">02</span>
+        <h3 class="service__name">Room &amp; Space Renovations</h3>
+        <p class="service__desc">
+          Focused renovation services for specific areas of the home,
+          including kitchens, bathrooms, fireplaces, staircases, closets,
+          offices, custom cabinetry, built-ins, and outdoor kitchens.
+        </p>
       </li>
-
       <li class="service" data-reveal>
-        <div class="service__num">03</div>
-        <div class="service__body">
-          <h3 class="service__name">Furnishing, Styling &amp; Move-In Services</h3>
-          <p class="service__desc">
-            Design support for furnishing and styling homes, whether for a
-            single room or an entire home. Ideal for clients relocating
-            from another city or country, this service includes furniture
-            sourcing, layout planning, lighting, rugs, artwork,
-            accessories, and creating a polished, move-in-ready home.
-          </p>
-          <ul class="service__tags">
-            <li>Furniture sourcing</li>
-            <li>Layout planning</li>
-            <li>Lighting</li>
-            <li>Rugs &amp; textiles</li>
-            <li>Art &amp; accessories</li>
-          </ul>
-        </div>
+        <span class="service__num">03</span>
+        <h3 class="service__name">Home Styling &amp; Furnishing</h3>
+        <p class="service__desc">
+          Furnishing, accessorizing, and styling services for clients
+          looking to complete their home, refresh a room, or create a
+          move-in-ready space.
+        </p>
       </li>
-
-      <li class="service" data-reveal>
-        <div class="service__num">04</div>
-        <div class="service__body">
-          <h3 class="service__name">Interior Design &amp; Concept Development</h3>
-          <p class="service__desc">
-            Design services focused on creating a clear vision and
-            direction for a space. Includes room design, concept creation,
-            material and finish selections, color palettes, furniture
-            planning, and overall aesthetic development to ensure a
-            cohesive and personalized result.
-          </p>
-          <ul class="service__tags">
-            <li>Concept creation</li>
-            <li>Material &amp; finish selection</li>
-            <li>Color palettes</li>
-            <li>Furniture planning</li>
-            <li>Aesthetic direction</li>
-          </ul>
-        </div>
-      </li>
-
-    </ol>
+    </ul>
   </div>
 </section>
 
@@ -394,6 +328,20 @@
   </div>
 </section>
 
+<!-- ============== LIGHTBOX ============== -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Photo viewer">
+  <button class="lightbox__close" id="lbClose" aria-label="Close">×</button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="Previous photo">‹</button>
+  <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Next photo">›</button>
+  <figure class="lightbox__stage">
+    <img class="lightbox__img" id="lbImg" alt="" />
+    <figcaption class="lightbox__caption">
+      <span id="lbCaption"></span>
+      <span class="lightbox__count" id="lbCount"></span>
+    </figcaption>
+  </figure>
+</div>
+
 <!-- ============== CONTACT ============== -->
 <section class="contact" id="contact" data-screen-label="06 contact">
   <div class="contact__inner">
@@ -436,9 +384,8 @@
           <select id="project_type" name="project_type" required>
             <option value="" disabled selected>Please select…</option>
             <option>Full home renovation</option>
-            <option>Kitchen, bath or built-in</option>
-            <option>Furnishing &amp; styling</option>
-            <option>Interior design &amp; concept</option>
+            <option>Room or space renovation</option>
+            <option>Home styling &amp; furnishing</option>
             <option>Not sure yet</option>
           </select>
           <span class="select__arrow">↓</span>

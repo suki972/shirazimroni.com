@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#efece4"></rect>
+  <circle cx="32" cy="32" r="20" fill="none" stroke="#26241f" stroke-width="1.5"></circle>
+  <circle cx="9" cy="32" r="1.6" fill="#26241f"></circle>
+  <circle cx="55" cy="32" r="1.6" fill="#26241f"></circle>
+  <text x="32" y="38" text-anchor="middle" font-family="Geist, ui-sans-serif, system-ui, -apple-system, &#39;Segoe UI&#39;, sans-serif" font-size="16" font-weight="400" letter-spacing="0.04em" fill="#26241f">SZ</text>
+</svg>
