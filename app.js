@@ -4,15 +4,9 @@
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
-  // Sticky nav style
-  const nav = $('#nav');
-  const onScroll = () => {
-    if (!nav) return;
-    if (window.scrollY > 40) nav.classList.add('is-scrolled');
-    else nav.classList.remove('is-scrolled');
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  // Sticky nav style — disabled, nav stays constant
+  // const nav = $('#nav');
+  // const onScroll = () => { ... };
 
   // Mobile menu
   const menuBtn = $('#navMenuBtn');

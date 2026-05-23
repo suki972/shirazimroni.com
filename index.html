@@ -49,17 +49,24 @@
 <main id="top">
 
 <!-- ============== HERO ============== -->
-<section class="hero" data-screen-label="01 hero">
-  <img class="hero__img" src="assets/hero.jpg" alt="Featured interior project" />
-  <div class="hero__veil"></div>
-  <div class="hero__overlay">
-    <div class="hero__top">
-      <span class="dash"></span>
-      <span>Interior Design — Austin, Texas</span>
+<section class="hero" id="hero" data-screen-label="01 hero">
+
+  <div class="hero__panel hero__panel--center">
+    <div class="hero__c-top">
+      <span class="dot"></span>
+      <span>Austin, Texas</span>
     </div>
-    <h1 class="hero__title">Shira Zimroni</h1>
+    <h1 class="hero__title hero__title--c">
+      <span class="hero__title-line">Shira</span>
+      <span class="hero__title-line">Zimroni</span>
+    </h1>
+    <div class="hero__c-bottom">Interior Designer</div>
   </div>
-  <span class="hero__credit">Featured · Living room</span>
+
+  <div class="hero__photo">
+    <img src="assets/hero.jpg" alt="Featured interior project" />
+    <div class="hero__mobile-scrim" aria-hidden="true"></div>
+  </div>
 </section>
 
 <!-- ============== ABOUT / INTRO ============== -->
@@ -96,41 +103,29 @@
 
         <div class="about__body" data-reveal>
           <p>
-            Shira Zimroni is an interior designer specializing in residential
+            I am an Austin-based interior designer specializing in residential
             renovations, custom interiors, and thoughtfully curated living
-            spaces. Based in Austin, Texas, she lives with her husband and
-            two daughters and brings a warm, lifestyle-driven approach to
-            every project she takes on.
+            spaces. My work focuses on creating homes that feel elevated,
+            functional, and deeply personal, balancing beauty with the way
+            each family truly lives.
           </p>
           <p>
-            Before transitioning into interior design, Shira spent years
-            working as an HR Business Partner within startup companies,
-            where she developed a strong foundation in communication, project
-            management, and understanding people's needs. Although she built
-            a successful corporate career, her passion for interiors,
-            architecture, and creating meaningful spaces ultimately led her
-            to pursue design professionally.
+            Before transitioning into interior design, I worked as an HR
+            Business Partner in the startup world, where I developed a strong
+            foundation in communication, project management, and understanding
+            people's needs. That experience continues to shape the way I work
+            today, allowing me to guide clients through the design and
+            renovation process with clarity, collaboration, and attention to
+            detail.
           </p>
           <p>
-            After studying interior design in Berkeley, California, Shira
-            began working on residential renovation and styling projects
-            across the United States and abroad. Her work ranges from
-            full-home remodels and kitchen and bathroom renovations to
-            custom cabinetry, staircases, fireplaces, furnishings, and
-            styling.
-          </p>
-          <p>
-            Shira's design philosophy centers around creating homes that
-            feel elevated yet livable — spaces that are both beautiful and
-            deeply personal. She believes thoughtful design has the ability
-            to shape everyday life, bringing comfort, functionality, and a
-            sense of connection to the home.
-          </p>
-          <p>
-            Known for her collaborative approach and attention to detail,
-            Shira works closely with each client to create interiors that
-            reflect their lifestyle, needs, and aesthetic in a timeless and
-            intentional way.
+            After studying interior design in Berkeley, California, I began
+            working on renovation and styling projects that range from
+            full-home remodels and kitchen and bathroom renovations to custom
+            cabinetry, staircases, fireplaces, furnishings, and styling. My
+            approach is warm, intentional, and detail-driven, with the goal
+            of creating timeless spaces that feel both beautiful and truly
+            livable.
           </p>
         </div>
       </div>
@@ -293,44 +288,108 @@
       </p>
     </header>
 
+    <!--
+      Gallery ordering convention:
+      Group photos by PROJECT first (same filename prefix, e.g. shira_izora_*,
+      shira_malaga_*), then by ROOM TYPE within each project so shots of the
+      same space sit next to each other. When adding new photos, keep them
+      adjacent to others from the same project + room.
+    -->
     <div class="gallery__grid" id="galleryGrid">
+
+      <!-- ===== Project: Izora ===== -->
+
+      <!-- Common spaces -->
+      <figure class="gal gal--tall" data-category="common" data-reveal>
+        <img class="gal__img" src="assets/shira_izora_blp5003.jpg" alt="Entryway with mirror and coat rack" loading="lazy" />
+        <figcaption class="gal__caption">Entryway</figcaption>
+      </figure>
+      <figure class="gal gal--tall" data-category="common" data-reveal>
+        <img class="gal__img" src="assets/shira_izora_blp5011.jpg" alt="Dining area with bar in background" loading="lazy" />
+        <figcaption class="gal__caption">Dining</figcaption>
+      </figure>
+
+      <!-- Kitchens -->
       <figure class="gal gal--tall" data-category="kitchens" data-reveal>
-        <div class="gal__media gal__media--warm"></div>
-        <figcaption class="gal__caption">Kitchen · 01</figcaption>
+        <img class="gal__img" src="assets/shira_izora_blp5015.jpg" alt="Built-in bar with floating oak shelves" loading="lazy" />
+        <figcaption class="gal__caption">Bar built-in</figcaption>
       </figure>
-      <figure class="gal gal--wide" data-category="common" data-reveal>
-        <div class="gal__media gal__media--sage"></div>
-        <figcaption class="gal__caption">Living · 02</figcaption>
+      <figure class="gal gal--tall" data-category="kitchens" data-reveal>
+        <img class="gal__img" src="assets/shira_izora_blp5016.jpg" alt="Kitchen with green lower cabinets" loading="lazy" />
+        <figcaption class="gal__caption">Kitchen</figcaption>
       </figure>
-      <figure class="gal gal--square" data-category="bathrooms" data-reveal>
-        <div class="gal__media gal__media--bone"></div>
-        <figcaption class="gal__caption">Bath · 03</figcaption>
+      <figure class="gal gal--tall" data-category="kitchens" data-reveal>
+        <img class="gal__img" src="assets/shira_izora_blp5018.jpg" alt="Kitchen range with marble backsplash" loading="lazy" />
+        <figcaption class="gal__caption">Kitchen</figcaption>
       </figure>
+
+      <!-- Stairs -->
       <figure class="gal gal--tall" data-category="stairs" data-reveal>
-        <div class="gal__media gal__media--taupe"></div>
-        <figcaption class="gal__caption">Stair · 04</figcaption>
+        <img class="gal__img" src="assets/shira_izora_blp5020.jpg" alt="Open-tread staircase with vinyl shelves" loading="lazy" />
+        <figcaption class="gal__caption">Staircase</figcaption>
       </figure>
-      <figure class="gal gal--square" data-category="offices" data-reveal>
-        <div class="gal__media gal__media--warm"></div>
-        <figcaption class="gal__caption">Office · 05</figcaption>
+      <figure class="gal gal--wide" data-category="stairs" data-reveal>
+        <img class="gal__img" src="assets/shira_izora_blp5021.jpg" alt="Fireplace and stair detail" loading="lazy" />
+        <figcaption class="gal__caption">Stairs &amp; fireplace</figcaption>
+      </figure>
+
+      <!-- Bathrooms -->
+      <figure class="gal gal--tall" data-category="bathrooms" data-reveal>
+        <img class="gal__img" src="assets/shira_izora_blp5022.jpg" alt="Bathroom with green tile and organic mirror" loading="lazy" />
+        <figcaption class="gal__caption">Bathroom</figcaption>
+      </figure>
+      <figure class="gal gal--tall" data-category="bathrooms" data-reveal>
+        <img class="gal__img" src="assets/shira_izora_blp5023.jpg" alt="Bathroom with double vanity and checkered floor" loading="lazy" />
+        <figcaption class="gal__caption">Bathroom</figcaption>
+      </figure>
+      <figure class="gal gal--tall" data-category="bathrooms" data-reveal>
+        <img class="gal__img" src="assets/shira_izora_blp5024.jpg" alt="Bathroom double vanity with wood cabinet" loading="lazy" />
+        <figcaption class="gal__caption">Bathroom</figcaption>
+      </figure>
+      <figure class="gal gal--wide" data-category="bathrooms" data-reveal>
+        <img class="gal__img" src="assets/shira_izora_blp5025.jpg" alt="Bathroom with checkered floor and tub" loading="lazy" />
+        <figcaption class="gal__caption">Bathroom</figcaption>
+      </figure>
+      <figure class="gal gal--tall" data-category="bathrooms" data-reveal>
+        <img class="gal__img" src="assets/shira_izora_blp5026.jpg" alt="Shower detail with niche and towel" loading="lazy" />
+        <figcaption class="gal__caption">Shower detail</figcaption>
+      </figure>
+
+      <!-- ===== Project: Malaga ===== -->
+
+      <!-- Common spaces -->
+      <figure class="gal gal--wide" data-category="common" data-reveal>
+        <img class="gal__img" src="assets/shira_malaga_blp5001.jpg" alt="Window seat with built-in storage" loading="lazy" />
+        <figcaption class="gal__caption">Window seat</figcaption>
+      </figure>
+      <figure class="gal gal--tall" data-category="common" data-reveal>
+        <img class="gal__img" src="assets/shira_malaga_blp5002.jpg" alt="Open living area with wood beam" loading="lazy" />
+        <figcaption class="gal__caption">Living room</figcaption>
       </figure>
       <figure class="gal gal--wide" data-category="common" data-reveal>
-        <div class="gal__media gal__media--sage"></div>
-        <figcaption class="gal__caption">Dining · 06</figcaption>
+        <img class="gal__img" src="assets/shira_malaga_blp5004.jpg" alt="Plaster fireplace with rocking chair" loading="lazy" />
+        <figcaption class="gal__caption">Living fireplace</figcaption>
       </figure>
-      <figure class="gal gal--tall" data-category="kitchens" data-reveal>
-        <div class="gal__media gal__media--bone"></div>
-        <figcaption class="gal__caption">Kitchen · 07</figcaption>
+
+      <!-- Bathrooms -->
+      <figure class="gal gal--tall" data-category="bathrooms" data-reveal>
+        <img class="gal__img" src="assets/shira_malaga_blp5006.jpg" alt="Double vanity with cane cabinet doors" loading="lazy" />
+        <figcaption class="gal__caption">Bathroom</figcaption>
       </figure>
-      <figure class="gal gal--square" data-category="bathrooms" data-reveal>
-        <div class="gal__media gal__media--taupe"></div>
-        <figcaption class="gal__caption">Bath · 08</figcaption>
+      <figure class="gal gal--tall" data-category="bathrooms" data-reveal>
+        <img class="gal__img" src="assets/shira_malaga_blp5007.jpg" alt="Shower with peach tile" loading="lazy" />
+        <figcaption class="gal__caption">Shower</figcaption>
       </figure>
+      <figure class="gal gal--wide" data-category="bathrooms" data-reveal>
+        <img class="gal__img" src="assets/shira_malaga_blp5012.jpg" alt="Wider bathroom view with cane vanity" loading="lazy" />
+        <figcaption class="gal__caption">Bathroom</figcaption>
+      </figure>
+
     </div>
 
     <p class="gallery__note" data-reveal>
       <span class="dot dot--sage"></span>
-      Image placeholders — drop your photography here.
+      A selection of recent work — more available on request.
     </p>
   </div>
 </section>
@@ -391,7 +450,7 @@
       </div>
       <div class="form-footer">
         <p class="form-footer__note">
-          I will respond within 2&ndash;3 business days.
+          I will respond within 1&ndash;2 business days.
         </p>
         <button type="submit" class="btn btn--primary btn--lg">
           Send inquiry <span class="btn__arrow">→</span>
