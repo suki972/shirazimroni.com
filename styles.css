@@ -829,12 +829,11 @@ dl, dd { padding: 0; }
 .gal {
   margin: 0 0 clamp(10px, 1.4vw, 18px);
   position: relative;
-  overflow: hidden;
   border-radius: var(--radius);
   break-inside: avoid;
   display: block;
   cursor: zoom-in;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 .gal[hidden] { display: none; }
 /* Landscape photos break out and span the full grid width */
@@ -846,9 +845,10 @@ dl, dd { padding: 0; }
   width: 100%;
   height: auto;
   display: block;
-  transition: transform 0.6s ease;
+  border-radius: var(--radius);
+  transition: opacity 0.25s ease;
 }
-.gal:hover .gal__img { transform: scale(1.02); }
+.gal:hover .gal__img { opacity: 0.88; }
 .gal__caption {
   position: absolute;
   left: 12px;
