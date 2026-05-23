@@ -440,7 +440,6 @@ dl, dd { padding: 0; }
 }
 .service {
   display: grid;
-  gap: 10px;
   align-content: start;
   padding-right: 8px;
 }
@@ -450,19 +449,20 @@ dl, dd { padding: 0; }
   text-transform: uppercase;
   color: var(--ink-muted);
   font-weight: 500;
+  margin-bottom: 18px;
 }
 .service__name {
-  font-weight: 400;
-  font-size: 15px;
-  letter-spacing: -0.005em;
+  font-weight: 500;
+  font-size: clamp(16px, 1.4vw, 18px);
+  letter-spacing: -0.01em;
   line-height: 1.25;
   color: var(--ink);
-  margin: 0;
+  margin: 0 0 10px;
 }
 .service__desc {
   color: var(--ink-soft);
-  font-size: 13px;
-  line-height: 1.55;
+  font-size: 13.5px;
+  line-height: 1.6;
   margin: 0;
 }
 
