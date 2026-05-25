@@ -42,6 +42,25 @@
   const year = $('#year');
   if (year) year.textContent = new Date().getFullYear();
 
+  // Re-scroll to hash target after page settles
+  // (lazy images can shift layout after the browser's initial jump,
+  //  leaving the user above the intended section).
+  if (location.hash && location.hash.length > 1) {
+    const navOffset = 72;
+    const goToHash = () => {
+      const target = document.querySelector(location.hash);
+      if (!target) return;
+      const top = target.getBoundingClientRect().top + window.scrollY - navOffset;
+      window.scrollTo({ top, behavior: 'auto' });
+    };
+    // Once on load (after images), and once more next frame to catch reflow.
+    window.addEventListener('load', () => {
+      goToHash();
+      requestAnimationFrame(goToHash);
+      setTimeout(goToHash, 250);
+    });
+  }
+
   // Inquiry form
   const form = $('#inquiry');
   const success = $('#formSuccess');
