@@ -288,14 +288,37 @@ dl, dd { padding: 0; }
 .hero__title {
   align-self: center;
   text-align: center;
-  font-weight: 300;
-  letter-spacing: -0.04em;
-  line-height: 0.92;
-  font-size: clamp(56px, 7vw, 100px);
   margin: 0;
   color: var(--ink);
+
+  /* Wordmark: tracked caps w/ hairline rules above + below */
+  font-family: "Tenor Sans", "Geist", serif;
+  font-weight: 400;
+  font-size: clamp(22px, 2.6vw, 38px);
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  line-height: 1;
+  position: relative;
+  padding: clamp(20px, 2.4vw, 32px) 0;
 }
-.hero__title-line { display: block; }
+.hero__title-mark {
+  display: inline-block;
+  /* tracking pushes text left of optical center; compensate */
+  text-indent: 0.42em;
+}
+.hero__title::before,
+.hero__title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(32px, 3.6vw, 56px);
+  height: 1px;
+  background: var(--ink);
+  opacity: 0.5;
+}
+.hero__title::before { top: 0; }
+.hero__title::after  { bottom: 0; }
 
 .hero__c-bottom {
   align-self: end;
@@ -468,8 +491,8 @@ dl, dd { padding: 0; }
 }
 .service__desc {
   color: var(--ink-soft);
-  font-size: 13px;
-  line-height: 1.55;
+  font-size: 13.5px;
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -605,17 +628,17 @@ dl, dd { padding: 0; }
   max-width: var(--maxw);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(40px, 6vw, 96px);
+  grid-template-columns: 1fr;
+  gap: clamp(24px, 3vw, 40px);
   align-items: end;
 }
-.process-hero__left { display: grid; gap: 24px; }
+.process-hero__left { display: grid; gap: 24px; max-width: 880px; }
 .process-hero__title {
   font-weight: 300;
-  font-size: clamp(40px, 6vw, 88px);
-  line-height: 1.02;
-  letter-spacing: -0.02em;
-  text-wrap: pretty;
+  font-size: clamp(28px, 3.4vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
 }
 .process-hero__title-em {
   font-family: inherit;
@@ -1256,20 +1279,72 @@ dl, dd { padding: 0; }
     z-index: 2;
     background: transparent;
     color: #ece8df;
-    padding: 100px clamp(20px, 5vw, 32px) clamp(32px, 6vw, 48px);
-    text-align: left;
-    justify-items: stretch;
+    padding: 100px clamp(20px, 5vw, 32px) clamp(28px, 6vw, 44px);
+    /* title centered up top, two meta lines side-by-side at the bottom */
+    display: grid;
     grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    align-items: center;
+    column-gap: 0;
+    row-gap: 14px;
+    text-align: center;
   }
-  .hero__c-top { color: rgba(236, 232, 223, 0.92); justify-self: start; }
-  .hero__title { color: #ece8df; font-size: clamp(60px, 16vw, 120px); text-align: left; align-self: end; }
+  .hero__title {
+    grid-row: 1;
+    grid-column: 1 / -1;
+    color: #fff;
+    /* original option-4 treatment — tracked caps with hairline rules */
+    font-size: clamp(15px, 4vw, 20px);
+    letter-spacing: 0.34em;
+    padding: clamp(14px, 3.4vw, 20px) 0;
+    align-self: start;
+    justify-self: center;
+    text-shadow: 0 1px 16px rgba(0, 0, 0, 0.4);
+  }
+  .hero__title-mark {
+    font-weight: 500;
+  }
+  .hero__title::before,
+  .hero__title::after {
+    background: #fff;
+    opacity: 0.9;
+    width: clamp(24px, 5.4vw, 40px);
+    height: 1.5px;
+  }
+
+  /* Both meta lines in row 3, side-by-side w/ a divider between
+     Order: INTERIOR DESIGNER · AUSTIN, TEXAS */
+  .hero__c-top,
   .hero__c-bottom {
-    color: rgba(236, 232, 223, 0.85);
-    border-top-color: rgba(236, 232, 223, 0.32);
-    text-align: left;
+    grid-row: 3;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: auto;
     min-width: 0;
+    color: rgba(236, 232, 223, 0.92);
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-align: center;
+    align-self: end;
+  }
+  /* c-bottom (Interior Designer) sits on the LEFT */
+  .hero__c-bottom {
+    grid-column: 1;
+    justify-self: end;
+    padding-right: 14px;
+    border-right: 1px solid rgba(236, 232, 223, 0.35);
+  }
+  /* c-top (Austin, Texas) sits on the RIGHT */
+  .hero__c-top {
+    grid-column: 2;
     justify-self: start;
-    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding-left: 14px;
   }
 
   .hero__photo {
@@ -1295,9 +1370,7 @@ dl, dd { padding: 0; }
 }
 
 @media (max-width: 980px) {
-  .hero__title { font-size: clamp(48px, 9vw, 96px); }
-
-  .step { grid-template-columns: 64px minmax(0, 1fr) clamp(140px, 20vw, 200px); }
+  .step { grid-template-columns: 64px minmax(0, 1fr) clamp(140px, 22vw, 200px); }
   .step__content { padding-left: 16px; padding-right: 16px; }
 
   .gallery__grid {
@@ -1323,7 +1396,6 @@ dl, dd { padding: 0; }
 
 @media (max-width: 560px) {
   .hero { padding-top: 100px; }
-  .hero__title { font-size: clamp(40px, 13vw, 64px); }
   .gallery__grid {
     column-count: 1;
   }
