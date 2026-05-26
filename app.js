@@ -4,6 +4,21 @@
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
+  // Keep --nav-h in sync with the actual rendered nav height so anything
+  // pinned below the nav (the hero on home) starts flush with no gap.
+  const nav = $('.nav');
+  if (nav) {
+    const setNavHeight = () => {
+      const h = Math.round(nav.getBoundingClientRect().height);
+      document.documentElement.style.setProperty('--nav-h', h + 'px');
+    };
+    setNavHeight();
+    window.addEventListener('resize', setNavHeight);
+    if ('ResizeObserver' in window) {
+      new ResizeObserver(setNavHeight).observe(nav);
+    }
+  }
+
   // Sticky nav style — disabled, nav stays constant
   // const nav = $('#nav');
   // const onScroll = () => { ... };
