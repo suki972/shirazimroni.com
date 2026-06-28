@@ -498,7 +498,7 @@ dl, dd { padding: 0; }
 .service__desc {
   color: var(--ink-soft);
   font-size: 13.5px;
-  line-height: 1.55;
+  line-height: 1.6;
   margin: 0;
 }
 
