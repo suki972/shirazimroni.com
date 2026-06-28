@@ -1,9 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" fill="#efece4"/>
-  <rect x="1" y="1" width="62" height="62" fill="none" stroke="#26241f" stroke-width="2"/>
-  <text x="32" y="44"
-    text-anchor="middle"
-    font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
-    font-size="28" font-weight="600" letter-spacing="2"
-    fill="#26241f">SZ</text>
+  <rect width="64" height="64" fill="#26241f"/>
+  <text x="32" y="44" text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="26" font-weight="normal" letter-spacing="3"
+    fill="#efece4">SZ</text>
 </svg>
