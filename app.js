@@ -103,6 +103,79 @@
   // Gallery filters
   const filterBtns = $$('.filter');
   const galleryItems = $$('#galleryGrid .gal');
+  const grid = $('#galleryGrid');
+
+  // ---- Masonry: absolute shortest-column packing (no gaps, no crop) ----
+  function colCountFor(width) {
+    if (width <= 560) return 1;
+    if (width <= 980) return 2;
+    return 3;
+  }
+  function layoutMasonry() {
+    if (!grid) return;
+    grid.classList.add('is-masonry');
+    const gapStr = getComputedStyle(grid).getPropertyValue('--gal-gap');
+    const gap = parseFloat(gapStr) || 16;
+    const total = grid.clientWidth;
+    const cols = colCountFor(window.innerWidth);
+    const colW = (total - gap * (cols - 1)) / cols;
+    const colH = new Array(cols).fill(0);
+
+    galleryItems.forEach(item => {
+      if (item.hidden) return;
+      const w = colW;
+      item.style.width = w + 'px';
+
+      // height from the image's natural aspect (stable before/after load)
+      const img = item.querySelector('.gal__img');
+      let h;
+      if (img && img.naturalWidth) {
+        h = w * (img.naturalHeight / img.naturalWidth);
+      } else {
+        h = item.offsetHeight || w; // fallback until loaded
+      }
+
+      // shortest column
+      let c = 0;
+      for (let i = 1; i < cols; i++) if (colH[i] < colH[c] - 0.5) c = i;
+      const x = c * (colW + gap);
+      const y = colH[c];
+      item.style.left = Math.round(x) + 'px';
+      item.style.top = Math.round(y) + 'px';
+      colH[c] = y + h + gap;
+    });
+
+    grid.style.height = (Math.max(...colH, 0) - gap) + 'px';
+  }
+
+  let rafPending = false;
+  function scheduleLayout() {
+    if (rafPending) return;
+    rafPending = true;
+    requestAnimationFrame(() => { rafPending = false; layoutMasonry(); });
+  }
+
+  if (grid && galleryItems.length) {
+    // relayout as each image's dimensions become known
+    galleryItems.forEach(item => {
+      const img = item.querySelector('.gal__img');
+      if (img && !img.complete) {
+        img.addEventListener('load', scheduleLayout, { once: true });
+        img.addEventListener('error', scheduleLayout, { once: true });
+      }
+    });
+    layoutMasonry();
+    // a couple of follow-up passes catch late layout/font shifts
+    window.addEventListener('load', scheduleLayout);
+    setTimeout(scheduleLayout, 250);
+    setTimeout(scheduleLayout, 1000);
+    let rT;
+    window.addEventListener('resize', () => {
+      clearTimeout(rT);
+      rT = setTimeout(layoutMasonry, 120);
+    });
+  }
+
   if (filterBtns.length && galleryItems.length) {
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -116,7 +189,81 @@
           const match = cat === 'all' || item.dataset.category === cat;
           item.hidden = !match;
         });
+        layoutMasonry();
       });
+    });
+  }
+
+  // ---- Before / After compare slider ----
+  function attachCompareDrag(el, onTap) {
+    if (!el) return;
+    const update = (clientX) => {
+      const r = el.getBoundingClientRect();
+      let pct = ((clientX - r.left) / r.width) * 100;
+      pct = Math.max(1.5, Math.min(98.5, pct));
+      el.style.setProperty('--pos', pct + '%');
+    };
+    let dragging = false, moved = false, startX = 0, pid = null;
+    el.addEventListener('pointerdown', (e) => {
+      dragging = true; moved = false; startX = e.clientX; pid = e.pointerId;
+      try { el.setPointerCapture(e.pointerId); } catch (_) {}
+    });
+    el.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      if (Math.abs(e.clientX - startX) > 4) {
+        moved = true;
+        el.classList.add('is-touched');
+        update(e.clientX);
+      }
+    });
+    const end = (e) => {
+      if (!dragging) return;
+      dragging = false;
+      try { el.releasePointerCapture(pid); } catch (_) {}
+      if (!moved && typeof onTap === 'function') onTap(e);
+    };
+    el.addEventListener('pointerup', end);
+    el.addEventListener('pointercancel', () => { dragging = false; });
+  }
+
+  const compareLb = $('#compareLb');
+  const clbBa = $('#clbBa');
+  const clbAfter = $('#clbAfter');
+  const clbBefore = $('#clbBefore');
+  const clbCap = $('#clbCap');
+  function openCompare(tile) {
+    if (!compareLb) return;
+    clbAfter.src = tile.dataset.after || '';
+    clbBefore.src = tile.dataset.before || '';
+    clbCap.textContent = tile.dataset.caption || '';
+    clbBa.style.setProperty('--pos', '33.33%');
+    // size the stage to the after image's aspect ratio
+    const ar = tile.dataset.aspect || '1400/933';
+    const parts = ar.split('/').map(Number);
+    if (parts.length === 2 && parts[0] && parts[1]) {
+      clbBa.style.aspectRatio = parts[0] + ' / ' + parts[1];
+      clbBa.style.width = 'min(92vw, calc(84vh * ' + parts[0] + ' / ' + parts[1] + '))';
+    }
+    compareLb.classList.add('is-open');
+    compareLb.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeCompare() {
+    if (!compareLb) return;
+    compareLb.classList.remove('is-open');
+    compareLb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  $$('#galleryGrid .gal--compare').forEach(tile => {
+    attachCompareDrag(tile, () => openCompare(tile));
+  });
+  if (compareLb && clbBa) {
+    attachCompareDrag(clbBa, null);
+    const clbClose = $('#clbClose');
+    if (clbClose) clbClose.addEventListener('click', closeCompare);
+    compareLb.addEventListener('click', (e) => { if (e.target === compareLb) closeCompare(); });
+    document.addEventListener('keydown', (e) => {
+      if (compareLb.classList.contains('is-open') && e.key === 'Escape') closeCompare();
     });
   }
 
@@ -157,6 +304,7 @@
       show(list, idx + n);
     };
     galleryItems.forEach((item, i) => {
+      if (item.classList.contains('gal--compare')) return; // handled by compare overlay
       item.addEventListener('click', (e) => {
         e.preventDefault();
         open(i);

@@ -387,6 +387,8 @@ dl, dd { padding: 0; }
   object-position: 34% 45%;
   border-radius: var(--radius);
   background: var(--bg-alt);
+  /* warm, soft, editorial grade to match the interior photography */
+  filter: saturate(0.86) contrast(0.95) brightness(1.05) sepia(0.12);
 }
 .about__caption {
   display: flex;
@@ -496,7 +498,7 @@ dl, dd { padding: 0; }
 .service__desc {
   color: var(--ink-soft);
   font-size: 13.5px;
-  line-height: 1.6;
+  line-height: 1.55;
   margin: 0;
 }
 
@@ -887,24 +889,33 @@ dl, dd { padding: 0; }
 }
 
 .gallery__grid {
+  --gal-gap: clamp(10px, 1.4vw, 18px);
+  /* Fallback (no-JS): balanced multi-column masonry */
   column-count: 3;
-  column-gap: clamp(10px, 1.4vw, 18px);
+  column-gap: var(--gal-gap);
+}
+/* JS masonry: absolute, shortest-column packing — zero gaps */
+.gallery__grid.is-masonry {
+  position: relative;
+  column-count: initial;
 }
 .gal {
-  margin: 0 0 clamp(10px, 1.4vw, 18px);
+  margin: 0 0 var(--gal-gap);
   position: relative;
   border-radius: var(--radius);
   break-inside: avoid;
   display: block;
   cursor: zoom-in;
-  transition: opacity 0.3s ease;
+}
+.gallery__grid.is-masonry .gal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 32%;            /* real width assigned by JS */
 }
 .gal[hidden] { display: none; }
-/* Landscape photos break out and span the full grid width */
-.gal--wide {
-  column-span: all;
-  margin-top: clamp(10px, 1.4vw, 18px);
-}
+/* .gal--wide is a marker the masonry reads to span two columns */
 .gal__img {
   width: 100%;
   height: auto;
@@ -931,6 +942,147 @@ dl, dd { padding: 0; }
   transition: opacity 0.3s ease;
 }
 .gal:hover .gal__caption { opacity: 1; }
+
+/* ============================================================
+   BEFORE / AFTER COMPARE
+============================================================ */
+/* Gallery tile variant */
+.gal--compare {
+  --pos: 33.33%;   /* default: 1/3 before (left), 2/3 after (right) */
+  overflow: hidden;
+  cursor: ew-resize;
+  touch-action: pan-y;       /* let the page scroll vertically; we own horizontal */
+  user-select: none;
+}
+.gal--compare .gal__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+}
+.ba__before {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  /* reveal only the left --pos slice of the BEFORE image */
+  clip-path: inset(0 calc(100% - var(--pos)) 0 0);
+}
+.ba__before img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  pointer-events: none;
+}
+.ba__divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--pos);
+  transform: translateX(-50%);
+  width: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.ba__line {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 0 0 1px rgba(20, 18, 14, 0.18);
+}
+.ba__grip {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--ink);
+  box-shadow: 0 4px 14px rgba(20, 18, 14, 0.28);
+}
+.gal--compare .ba__grip { width: 34px; height: 34px; }
+.ba__tag {
+  position: absolute;
+  bottom: 12px;
+  font-size: 9.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(20, 18, 14, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 4px 9px;
+  border-radius: 999px;
+  pointer-events: none;
+}
+.ba__tag--before { left: 12px; }
+.ba__tag--after  { right: 12px; }
+.gal--compare .gal__caption {
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 12px;
+  opacity: 1;          /* always show the "drag to compare" hint */
+}
+/* hide the hint once the user has interacted */
+.gal--compare.is-touched .gal__caption { opacity: 0; }
+
+/* Fullscreen compare overlay */
+.compare-lb {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(18, 16, 12, 0.94);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 4vh 4vw;
+}
+.compare-lb.is-open { display: flex; }
+.compare-lb__stage {
+  display: grid;
+  gap: 16px;
+  justify-items: center;
+}
+.ba--full {
+  --pos: 33.33%;   /* default: 1/3 before (left), 2/3 after (right) */
+  position: relative;
+  aspect-ratio: 1400 / 933;
+  width: min(92vw, calc(84vh * 1400 / 933));
+  max-height: 84vh;
+  overflow: hidden;
+  border-radius: 3px;
+  cursor: ew-resize;
+  touch-action: pan-y;
+  user-select: none;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+.ba--full .ba__afterimg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  pointer-events: none;
+}
+.compare-lb__cap {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(236, 232, 223, 0.8);
+}
+@media (max-width: 560px) {
+  .ba--full { width: 92vw; max-height: 80vh; }
+}
 
 .gal--tall, .gal--square { display: block; }
 
