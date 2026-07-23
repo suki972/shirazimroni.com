@@ -96,9 +96,8 @@
       if (!ok) return;
 
       const submitBtn = form.querySelector('[type=submit]');
-      form.querySelectorAll('input,textarea,select,button').forEach(el => el.setAttribute('disabled', ''));
-
       const data = new FormData(form);
+      form.querySelectorAll('input,textarea,select,button').forEach(el => el.setAttribute('disabled', ''));
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
