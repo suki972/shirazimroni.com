@@ -64,10 +64,21 @@
   function scrollToTarget(hash) {
     const target = document.querySelector(hash);
     if (!target) return;
-    const getTop = () => target.getBoundingClientRect().top + window.scrollY - navH();
-    window.scrollTo({ top: getTop(), behavior: 'smooth' });
-    // Re-settle after masonry may have reflowed from lazy images loading
-    setTimeout(() => window.scrollTo({ top: getTop(), behavior: 'smooth' }), 450);
+
+    // Absolute position of target accounting for sticky nav
+    const getPos = () => target.getBoundingClientRect().top + window.scrollY - navH();
+
+    window.scrollTo({ top: getPos(), behavior: 'smooth' });
+
+    // Lazy gallery images load as the page scrolls, pushing the contact section
+    // further down. Correct position after the smooth animation finishes and
+    // again later to catch images that take longer to load.
+    let done = false;
+    window.addEventListener('wheel',      () => { done = true; }, { once: true, passive: true });
+    window.addEventListener('touchstart', () => { done = true; }, { once: true, passive: true });
+    [900, 1800, 2800].forEach(ms => setTimeout(() => {
+      if (!done) window.scrollTo({ top: getPos(), behavior: 'instant' });
+    }, ms));
   }
 
   document.querySelectorAll('a[href^="#"]').forEach(a => {
