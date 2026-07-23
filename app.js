@@ -77,12 +77,12 @@
   }
 
   // Inquiry form
+  const W3F_KEY = '0656a103-74c2-4774-bdc5-b97f849976c5'; // web3forms.com → delivers to shirazimroni@gmail.com
   const form = $('#inquiry');
   const success = $('#formSuccess');
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      // simple required-field check
       const required = $$('[required]', form);
       let ok = true;
       required.forEach(field => {
@@ -94,9 +94,38 @@
         }
       });
       if (!ok) return;
-      // pretend-submit
+
+      const submitBtn = form.querySelector('[type=submit]');
       form.querySelectorAll('input,textarea,select,button').forEach(el => el.setAttribute('disabled', ''));
-      success.hidden = false;
+
+      const data = new FormData(form);
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: W3F_KEY,
+          subject: 'New project inquiry — shirazimroni.com',
+          name: data.get('name'),
+          email: data.get('email'),
+          phone: data.get('phone') || '(not provided)',
+          project_type: data.get('project_type'),
+          message: data.get('message'),
+          botcheck: ''
+        })
+      })
+        .then(r => r.json())
+        .then(res => {
+          if (res.success) {
+            success.hidden = false;
+          } else {
+            form.querySelectorAll('input,textarea,select,button').forEach(el => el.removeAttribute('disabled'));
+            if (submitBtn) submitBtn.textContent = 'Something went wrong — please try again';
+          }
+        })
+        .catch(() => {
+          form.querySelectorAll('input,textarea,select,button').forEach(el => el.removeAttribute('disabled'));
+          if (submitBtn) submitBtn.textContent = 'Something went wrong — please try again';
+        });
     });
   }
 
