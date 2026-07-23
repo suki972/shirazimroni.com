@@ -57,22 +57,34 @@
   const year = $('#year');
   if (year) year.textContent = new Date().getFullYear();
 
-  // Re-scroll to hash target after page settles
-  // (lazy images can shift layout after the browser's initial jump,
-  //  leaving the user above the intended section).
+  // Hash-link scrolling: accounts for sticky nav height and masonry reflow
+  // (lazy images push sections down after the browser's initial jump)
+  const navH = () => nav ? Math.round(nav.getBoundingClientRect().height) : 70;
+
+  function scrollToTarget(hash) {
+    const target = document.querySelector(hash);
+    if (!target) return;
+    const getTop = () => target.getBoundingClientRect().top + window.scrollY - navH();
+    window.scrollTo({ top: getTop(), behavior: 'smooth' });
+    // Re-settle after masonry may have reflowed from lazy images loading
+    setTimeout(() => window.scrollTo({ top: getTop(), behavior: 'smooth' }), 450);
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    const hash = a.getAttribute('href');
+    if (!hash || hash === '#') return;
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      if (hash === '#top') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+      scrollToTarget(hash);
+    });
+  });
+
+  // On page load with a hash in the URL, re-scroll after images settle
   if (location.hash && location.hash.length > 1) {
-    const navOffset = 72;
-    const goToHash = () => {
-      const target = document.querySelector(location.hash);
-      if (!target) return;
-      const top = target.getBoundingClientRect().top + window.scrollY - navOffset;
-      window.scrollTo({ top, behavior: 'auto' });
-    };
-    // Once on load (after images), and once more next frame to catch reflow.
     window.addEventListener('load', () => {
-      goToHash();
-      requestAnimationFrame(goToHash);
-      setTimeout(goToHash, 250);
+      scrollToTarget(location.hash);
+      setTimeout(() => scrollToTarget(location.hash), 250);
     });
   }
 
