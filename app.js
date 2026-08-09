@@ -4,6 +4,22 @@
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
+  // Analytics helper — no-ops safely if gtag/adblock isn't present
+  const track = (name, params = {}) => {
+    if (typeof window.gtag === 'function') window.gtag('event', name, params);
+  };
+
+  // CTA click tracking (nav, footer, and primary buttons)
+  $$('.nav__cta, .services__footer-cta, .btn--primary').forEach((el) => {
+    el.addEventListener('click', () => {
+      track('cta_click', {
+        cta_label: (el.textContent || '').trim().replace(/\s+/g, ' '),
+        cta_id: el.id || undefined,
+        cta_href: el.getAttribute('href') || undefined
+      });
+    });
+  });
+
   // Keep --nav-h in sync with the actual rendered nav height so anything
   // pinned below the nav (the hero on home) starts flush with no gap.
   const nav = $('.nav');
@@ -139,6 +155,7 @@
         .then(res => {
           if (res.success) {
             success.hidden = false;
+            track('generate_lead', { form_name: 'inquiry', project_type: data.get('project_type') || undefined });
           } else {
             form.querySelectorAll('input,textarea,select,button').forEach(el => el.removeAttribute('disabled'));
             if (submitBtn) submitBtn.textContent = 'Something went wrong — please try again';
