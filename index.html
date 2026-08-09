@@ -10,6 +10,23 @@
 
   gtag('config', 'G-JJ0H0WZZL9');
 </script>
+<!-- Event snippet for Submit lead form conversion page -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-655664266/0dnmCKuRw94cEIrJ0rgC',
+      'value': 1.0,
+      'currency': 'ILS',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Shira Zimroni Interiors | Interior Designer — Austin, TX</title>

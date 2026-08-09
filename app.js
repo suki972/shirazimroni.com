@@ -156,6 +156,7 @@
           if (res.success) {
             success.hidden = false;
             track('generate_lead', { form_name: 'inquiry', project_type: data.get('project_type') || undefined });
+            if (typeof window.gtag_report_conversion === 'function') window.gtag_report_conversion();
           } else {
             form.querySelectorAll('input,textarea,select,button').forEach(el => el.removeAttribute('disabled'));
             if (submitBtn) submitBtn.textContent = 'Something went wrong — please try again';
